@@ -27,8 +27,9 @@ def close(event):
 window = Tk()
 window.config(height=350, width=350)
 window.bind('<Escape>', close)
-add_timer_button = Button(window, text='Add Timer', width=25, command=create_timer)
-add_timer_button.pack(side=tkinter.BOTTOM)
+window.title("Timers")
+add_timer_button = Button(window, text='Add Timer', width=25, command=create_timer, padx=5)
+add_timer_button.pack(side=tkinter.BOTTOM, padx=5, pady=5)
 add_timer_button.bind("<Return>", create_timer)
 add_timer_button.focus_set()
 

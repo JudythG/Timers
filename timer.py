@@ -73,7 +73,10 @@ class Timer:
         hours = math.floor(self.time_in_seconds / NUM_SEC_IN_HOUR)
         minutes = math.floor((self.time_in_seconds - (hours * NUM_SEC_IN_HOUR)) / NUM_SEC_IN_MINUTE)
         seconds = self.time_in_seconds - (hours * NUM_SEC_IN_HOUR) - (minutes * NUM_SEC_IN_MINUTE)
-        self.timer_text.config(text=f"{hours:02d}:{minutes:02d}:{seconds:02d}")
+        if hours > 0:
+            self.timer_text.config(text=f"{hours:02d}:{minutes:02d}:{seconds:02d}")
+        else:
+            self.timer_text.config(text=f"{minutes:02d}:{seconds:02d}")
 
     def countdown(self):
         """ Pauses self for a second. If time left in countdown, calls self again. Otherwise calls countdown_done. """
